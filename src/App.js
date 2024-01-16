@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import "./index.css"; // Import the CSS file
 import StreetStyle from "./Gallery/StreetStyle";
 import ClassicStyle from "./Gallery/ClassicStyle";
+import BackButton from "./BackButton";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <div>
         <Navbar />
         <div className="mt-4 mb-4">
-          {" "}
+          <BackButton />{" "}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />

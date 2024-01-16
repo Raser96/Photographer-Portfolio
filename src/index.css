@@ -24,3 +24,13 @@ main {
   z-index: 1;
   text-align: center !important;
 }
+
+.loading {
+  min-width: 10rem;
+  min-height: 10rem;
+}
+
+.back-button {
+  min-width: 15vw;
+  margin-left: 4vw;
+}
