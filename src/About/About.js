@@ -19,7 +19,7 @@ const About = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 500); // Change the duration as needed
 
     return () => clearTimeout(timer);
   }, []);
