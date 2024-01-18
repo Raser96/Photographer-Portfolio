@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <HelmetProvider>
       <Helmet>
-        <title>Ly Thuan | Portfolio</title>
+        <title>Loading... | Portfolio</title>
       </Helmet>
       <App />
     </HelmetProvider>
