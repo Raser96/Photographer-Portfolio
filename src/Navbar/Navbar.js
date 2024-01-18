@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar as BootstrapNavbar, Container, Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import "./Navbar.css";
 
@@ -7,18 +8,18 @@ const Navbar = () => {
   return (
     <BootstrapNavbar expand="lg" className="main-nav">
       <Container>
-        <BootstrapNavbar.Brand href="/">
+        <NavLink to="/">
           <img className="logo-nav" alt="" src="/images/logo.jpg" />
-        </BootstrapNavbar.Brand>
+        </NavLink>
         <BootstrapNavbar.Toggle aria-controls="navbar" />
         <BootstrapNavbar.Collapse id="navbar">
           <Nav className="me-auto">
-            <Nav.Link className="me-auto nav-port-item" href="/gallery">
+            <NavLink className="mb-3 nav-port-item" to="/gallery">
               Gallery
-            </Nav.Link>
-            <Nav.Link className="me-auto nav-port-item" href="/about">
+            </NavLink>
+            <NavLink className="mb-3 nav-port-item" to="/about">
               About
-            </Nav.Link>
+            </NavLink>
           </Nav>
           <div className="social-media-links">
             <ul className="social-media">

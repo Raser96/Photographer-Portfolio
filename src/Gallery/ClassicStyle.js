@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Container, Row, Spinner } from "react-bootstrap";
 import { Gallery } from "react-grid-gallery";
+import { Helmet } from "react-helmet-async";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
@@ -47,8 +49,37 @@ const ClassicStyle = () => {
   const handleMovePrev = () => setIndex(prevIndex);
   const handleMoveNext = () => setIndex(nextIndex);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading delay with useEffect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500); // Change the duration as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <Container>
+        <Row
+          className="justify-content-center align-items-center"
+          style={{ minHeight: "100vh" }}
+        >
+          <Spinner className="loading" animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Row>
+      </Container>
+    );
+  }
+
   return (
     <div>
+      <Helmet>
+        <title>Classic | Portfolio</title>
+      </Helmet>
       <h2 style={{ textAlign: "center" }}>Classic</h2>
       <Gallery
         images={images}

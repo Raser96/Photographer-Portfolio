@@ -1,12 +1,49 @@
-import React from "react";
-import { Container, Row, Col, Image, Accordion } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  Accordion,
+  Spinner,
+} from "react-bootstrap";
 import ProgressJob from "./Progress";
 import "./About.css";
 import Contact from "./Contact";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading delay with useEffect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500); // Change the duration as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <Container>
+        <Row
+          className="justify-content-center align-items-center"
+          style={{ minHeight: "100vh" }}
+        >
+          <Spinner className="loading" animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Row>
+      </Container>
+    );
+  }
+
   return (
     <Container>
+      <Helmet>
+        <title>About | Portfolio</title>
+      </Helmet>
       <Row>
         <Col>
           <h2>About Photographer Portfolio</h2>
